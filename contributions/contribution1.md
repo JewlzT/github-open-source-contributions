@@ -1,24 +1,24 @@
 # Contribution 1: 🚀 Feature: Indicate errors to the user, if possible
 
-**Contribution Number:** 1
-**Student:** Julianne Tomlinson
-**Issue:** https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/2 
-**Status:** Phase I - Complete
+**Contribution Number:** 1  
+**Student:** Julianne Tomlinson  
+**Issue:** https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/2  
+**Status:** Phase I - Complete  
 
 ---
 
 ## Why I Chose This Issue
 
-I chose [this issue](https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/2) "Indicate errors to the user, if possible" because it aligns with my current TypeScript and JavaScript experience. I wanted to become familiar with the repository and the contributing experience before challenging myself with unfamiliar coding languages and frameworks. The issue is labeled "good for new contributors", is currently accepting PRs, and has clear acceptance criteria in the comments. The onboarding process doesn't seem too complex either.
+I chose [this issue](https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/2), "Indicate errors to the user, if possible", because it aligns with my current TypeScript and JavaScript experience. I wanted to become familiar with the repository and the contributing experience before challenging myself with unfamiliar coding languages and frameworks. The issue is labeled "good for new contributors", is currently accepting PRs, and has clear acceptance criteria in the description. The onboarding process doesn't seem too complex either.
 
 I'm interested in this because:
-1. It's frontend specific which is my strong suit
+1. It's frontend specific, which is my strong suit.
 2. I wanted to learn about Google Chrome extentions and how to code them.
 3. The maintainer seems supportive and kind.
 
 From reading the issue description, I understand the current problem is that users aren't getting clear feedback on the UI regarding unsuccessful loading of the replies.yml files in their chosen repository. There should be an indication of this on screen in the Saved Replies dropdown to show that there might be replies missing. If the dropdown isn't on screen at the time of the error, there should be a console error.
 
-I left a comment on the issue introducing myself, asking if the issue was still unsolved and open - Waiting for response
+I left a comment on the issue introducing myself, asking if the issue was still unsolved and open [Waiting for response]
 
 ---
 
