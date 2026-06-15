@@ -26,21 +26,21 @@ I left a comment on the issue introducing myself, asking if the issue was still 
 
 ### Problem Description
 
-[In your own words, what's broken or missing?]
+Currently, when the replies.yml file cannot be accessed in the repository, there is no visual indication to the user for this. At the moment, there is only a log within the console itself.
 
 ### Expected Behavior
 
-[What should happen?]
+When the necessary file cannot be read, then there should be an error that displays in the saved replies dropdown indicating this.
 
 ### Current Behavior
 
-[What actually happens?]
+Currently, the error is logged in the console which is not clear to the users.
 
 ### Affected Components
 
 [Which parts of the codebase are involved?]
 
----
+The `fetchRepliesConfiguration.ts` file is where the error code exists. If the frontend api fails to fetch the replies from the current repository, the error response is only located in the console. There is no UI that indicates the error or possible resolution of the error to the user.
 
 ## Reproduction Process
 
