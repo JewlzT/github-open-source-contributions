@@ -46,7 +46,9 @@ The `fetchRepliesConfiguration.ts` file is where the error code exists. If the f
 
 ### Environment Setup
 
-[Notes on setting up your local development environment - challenges you faced, how you solved them]
+Setting up the local development environment was easier than I first believed it to be. I just had to clone the repository and install the dependencies and recommended extensions. I found the file that would need to be altered fairly quickly as well. The interesting thing about Google extensions is that I can use the developer mode to upload the source code (after creating a build of the code) and I can use the extension locally.
+
+A problem that I have run into this week is that I cannot reproduce the issue as the Saved replies feature doesn't seem to be functioning as expected. I'm going to look into it more this upcoming week and see if it is a user error or an issue with the repository I've chosen.
 
 ### Steps to Reproduce
 
