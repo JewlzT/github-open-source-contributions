@@ -50,17 +50,19 @@ Setting up the local development environment was easier than I first believed it
 
 A problem that I have run into this week is that I cannot reproduce the issue as the Saved replies feature doesn't seem to be functioning as expected. I'm going to look into it more this upcoming week and see if it is a user error or an issue with the repository I've chosen.
 
+Update: I've been debugging all week (6/15-6/22) and have found out that there is an issue with the code unrelated to my issue. There is a problem finding the correct elements on the screen as the parameters that the code relied on seem to have changed since it was last worked on. The bug must be fixed so that I can develop my issue. I'll be opening a detailed issue this week and work on coding this instead. I link it here once I've created it and rewrite this contribution dock for the new issue.
+
 ### Steps to Reproduce
 
-1. [Step 1]
-2. [Step 2]
-3. [Observed result]
+1. Create a console log in the function for finding the element on the screen
+2. Activate the developer version of the extension
+3. Go to the issue of your choice
+4. Notice that the console log is displaying that the replies button cannot be found
 
 ### Reproduction Evidence
 
-- **Commit showing reproduction:** [Link to commit in your fork]
-- **Screenshots/logs:** [If applicable]
-- **My findings:** [What you discovered during reproduction]
+- **Screenshots/logs:** <img width="252" height="22" alt="image" src="https://github.com/user-attachments/assets/6bccff0a-2599-479c-af8b-c1d61d092ecd" />
+- **My findings:** I get the screenshot above in the logs when the parameter that was used to find the element on the screen is unsuccessful. I'm going to create an issue this upcoming week and write the solution for it.
 
 ---
 
