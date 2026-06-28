@@ -1,24 +1,22 @@
-# Contribution 1: 🚀 Feature: Indicate errors to the user, if possible
+# Contribution 1: 🐛 Bug: Error when accessing elements on issue page
 
 **Contribution Number:** 1  
 **Student:** Julianne Tomlinson  
-**Issue:** https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/2  
-**Status:** Phase I - Complete  
+**Issue:** [https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/1443](https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/1443)  
+**Status:** Phase II - Complete
 
 ---
 
 ## Why I Chose This Issue
 
-I chose [this issue](https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/2), "Indicate errors to the user, if possible", because it aligns with my current TypeScript and JavaScript experience. I wanted to become familiar with the repository and the contributing experience before challenging myself with unfamiliar coding languages and frameworks. The issue is labeled "good for new contributors", is currently accepting PRs, and has clear acceptance criteria in the description. The onboarding process doesn't seem too complex either.
+I created [this issue](https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/1443), "Error when accessing elements on issue page", as I ran into a couple of bugs when trying to work on [the contribution I chose before this](https://github.com/JewlzT/github-open-source-contributions/blob/main/contributions/contribution2.md). I realized while attempting to run the previous iteration that the elements were no longer being recognized as GitHub changed their naming conventions since 2023. I plan to update these to unblock other issues. The issue was accepted by the maintainer and is currently accepting PRs.
 
 I'm interested in this because:
 1. It's frontend specific, which is my strong suit.
 2. I wanted to learn about Google Chrome extentions and how to code them.
-3. The maintainer seems supportive and kind.
+3. It's an issue I made and understand.
 
-From reading the issue description, I understand the current problem is that users aren't getting clear feedback on the UI regarding unsuccessful loading of the replies.yml files in their chosen repository. There should be an indication of this on screen in the Saved Replies dropdown to show that there might be replies missing. If the dropdown isn't on screen at the time of the error, there should be a console error.
-
-I left a comment on the issue introducing myself, asking if the issue was still unsolved and open [Waiting for response]
+I created the issue and the maintainer agrees that it is necessary for the program. [Accepted]
 
 ---
 
@@ -26,21 +24,21 @@ I left a comment on the issue introducing myself, asking if the issue was still 
 
 ### Problem Description
 
-Currently, when the replies.yml file cannot be accessed in the repository, there is no visual indication to the user for this. At the moment, there is only a log within the console itself.
+Currently, when the document is being parsed for a specific element, it cannot be found because the query doesn't match the attributes on the current Saved Replies button.
 
 ### Expected Behavior
 
-When the necessary file cannot be read, then there should be an error that displays in the saved replies dropdown indicating this.
+When the correct attribute is accessed, we should be able to proceed with the program and search the user's replies to see if they have a global one for their repository (`.github/replies.yml`).
 
 ### Current Behavior
 
-Currently, the error is logged in the console which is not clear to the users.
+Currently, there is an error finding the element and the program exits early.
 
 ### Affected Components
 
 [Which parts of the codebase are involved?]
 
-The `fetchRepliesConfiguration.ts` file is where the error code exists. If the frontend api fails to fetch the replies from the current repository, the error response is only located in the console. There is no UI that indicates the error or possible resolution of the error to the user.
+The `content-script.ts` file is where the code errors out.
 
 ## Reproduction Process
 
@@ -48,21 +46,17 @@ The `fetchRepliesConfiguration.ts` file is where the error code exists. If the f
 
 Setting up the local development environment was easier than I first believed it to be. I just had to clone the repository and install the dependencies and recommended extensions. I found the file that would need to be altered fairly quickly as well. The interesting thing about Google extensions is that I can use the developer mode to upload the source code (after creating a build of the code) and I can use the extension locally.
 
-A problem that I have run into this week is that I cannot reproduce the issue as the Saved replies feature doesn't seem to be functioning as expected. I'm going to look into it more this upcoming week and see if it is a user error or an issue with the repository I've chosen.
-
-Update: I've been debugging all week (6/15-6/22) and have found out that there is an issue with the code unrelated to my issue. There is a problem finding the correct elements on the screen as the parameters that the code relied on seem to have changed since it was last worked on. The bug must be fixed so that I can develop my issue. I'll be opening a detailed issue this week and work on coding this instead. I link it here once I've created it and rewrite this contribution dock for the new issue.
-
 ### Steps to Reproduce
 
 1. Create a console log in the function for finding the element on the screen
 2. Activate the developer version of the extension
-3. Go to the issue of your choice
-4. Notice that the console log is displaying that the replies button cannot be found
+3. Go to the issue of your choice and open the console
+5. Notice that the console log is displaying that the replies button cannot be found
 
 ### Reproduction Evidence
 
 - **Screenshots/logs:** <img width="252" height="22" alt="image" src="https://github.com/user-attachments/assets/6bccff0a-2599-479c-af8b-c1d61d092ecd" />
-- **My findings:** I get the screenshot above in the logs when the parameter that was used to find the element on the screen is unsuccessful. I'm going to create an issue this upcoming week and write the solution for it.
+- **My findings:** I get the screenshot above in the logs when the attribute related to the element cannot be found. This appeared although the Saved Replies button was on the screen which means that the attribute it's trying to use is no longer valid.
 
 ---
 
@@ -70,30 +64,30 @@ Update: I've been debugging all week (6/15-6/22) and have found out that there i
 
 ### Analysis
 
-[Your analysis of the root cause - what's causing the issue?]
+The `content-script.ts` file is where the code errors out. The `document.querySelector()` function searches for the element, but cannot find it. This stops the process before anything else can occur.
 
 ### Proposed Solution
 
-[High-level description of your fix approach]
+My idea is to walk my way through the code using console logs to make sure that the necessary elements are being accessed and that the user flow works as intended.
 
 ### Implementation Plan
 
 Using UMPIRE framework (adapted):
 
-**Understand:** [Restate the problem]
+**Understand:** The problem is that the element that needs to be accessed (the Saved replies button) cannot be found due to attribute matching error.
 
-**Match:** [What similar patterns/solutions exist in the codebase?]
+**Match:** The maintainer claimed that this usually happens often, due to GitHub updating and changing. [This issue](https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/161) also had to revamp some aspects because the content needs to be updated when GitHub does any drastic updates.
 
 **Plan:** [Step-by-step implementation plan]
-1. [Modify file X to do Y]
-2. [Add function Z]
-3. [Update tests]
+1. Modify  `content-script.ts` file to locate the correct element and stop halting the process prematurely.
+2. Continue through the user flow (check `fetchSettings.ts` and `fetchRepliesConfiguration.ts` to make sure that the fetch APIs are getting any repo level replies.
+3. Run and update tests to match these changes
 
-**Implement:** [Link to your branch/commits as you work]
+**Implement:** [My branch](https://github.com/JewlzT/refined-saved-replies)
 
-**Review:** [Self-review checklist - does it follow the project's contribution guidelines?]
+**Review:** This issue and my UMPIRE plan follows the repository's [code of conduct](https://github.com/JewlzT/refined-saved-replies/blob/main/.github/CODE_OF_CONDUCT.md) and the [contributing docs](https://github.com/JewlzT/refined-saved-replies/blob/main/.github/CONTRIBUTING.md).
 
-**Evaluate:** [How will you verify it works?]
+**Evaluate:** I will verify it works through console logging when I create it and making tests so that the process will return an error to future developers in the case that GitHub makes updates that breaks the flow.
 
 ---
 
