@@ -1,2 +1,8 @@
-# GitHub Contribution Repo
-This is a repository filled with documentation regarding my contributions to GitHub and my learning experience.
+# Welcome to my GitHub Contribution Tracker
+
+## Description of Contents:
+- Contribution READMEs (Tracks my progress for each of my GitLab contributions)
+    - [Contribution 1](https://github.com/JewlzT/github-open-source-contributions/blob/main/contributions/contribution1.md) (current)
+    - [Contribution 2](https://github.com/JewlzT/github-open-source-contributions/blob/main/contributions/contribution2.md) 
+
+Thanks for reading ♡.✦ ݁˖♡
