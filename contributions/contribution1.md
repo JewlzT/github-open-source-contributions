@@ -3,7 +3,7 @@
 **Contribution Number:** 1  
 **Student:** Julianne Tomlinson  
 **Issue:** [https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/1443](https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/1443)  
-**Status:** Phase II - Complete
+**Status:** Phase III - In Progress
 
 ---
 
@@ -28,11 +28,11 @@ Currently, when the document is being parsed for a specific element, it cannot b
 
 ### Expected Behavior
 
-When the correct attribute is accessed, we should be able to proceed with the program and search the user's replies to see if they have a global one for their repository (`.github/replies.yml`).
+We should be able to proceed with the program, search the repository to see if they have a global file for their specific repository replies (`.github/replies.yml`), and display the repository replies in the saved replies pop up.
 
 ### Current Behavior
 
-Currently, there is an error finding the element and the program exits early.
+Currently, there is an error finding the element and the program exits early. The program exits in the first few lines of the main function file (`content-script.ts`) due to the fact that the attribute name that is used no longer follows GitHub's UI naming convention. This causes the program to quit as the element cannot be found on the page.
 
 ### Affected Components
 
@@ -44,7 +44,9 @@ The `content-script.ts` file is where the code errors out.
 
 ### Environment Setup
 
-Setting up the local development environment was easier than I first believed it to be. I just had to clone the repository and install the dependencies and recommended extensions. I found the file that would need to be altered fairly quickly as well. The interesting thing about Google extensions is that I can use the developer mode to upload the source code (after creating a build of the code) and I can use the extension locally.
+Setting up the local development environment was easier than I first believed it to be. I just had to clone the repository, install the dependencies and recommended extensions, go to my Google extensions and switch it to development mode, and upload the code that I cloned to run the extension on a site. As I make changes, all I need to do is create a new build and refresh the extension to see the changes locally.
+
+I found the file that would need to be altered fairly quickly as well. The interesting thing about Google extensions is that I can use the developer mode to upload the source code (after creating a build of the code) and I can use the extension locally.
 
 ### Steps to Reproduce
 
@@ -83,7 +85,7 @@ Using UMPIRE framework (adapted):
 2. Continue through the user flow (check `fetchSettings.ts` and `fetchRepliesConfiguration.ts` to make sure that the fetch APIs are getting any repo level replies.
 3. Run and update tests to match these changes
 
-**Implement:** [My branch](https://github.com/JewlzT/refined-saved-replies)
+**Implement:** [My branch](https://github.com/JewlzT/refined-saved-replies/tree/bugfix/update-element-queries)
 
 **Review:** This issue and my UMPIRE plan follows the repository's [code of conduct](https://github.com/JewlzT/refined-saved-replies/blob/main/.github/CODE_OF_CONDUCT.md) and the [contributing docs](https://github.com/JewlzT/refined-saved-replies/blob/main/.github/CONTRIBUTING.md).
 
@@ -94,27 +96,21 @@ Using UMPIRE framework (adapted):
 ## Testing Strategy
 
 ### Unit Tests
-
-- [ ] Test case 1: [Description]
-- [ ] Test case 2: [Description]
-- [ ] Test case 3: [Description]
-
-### Integration Tests
-
-- [ ] Integration scenario 1
-- [ ] Integration scenario 2
+There are not unit tests covering the file that is currently broken so I plan to write some to avoid this issue in the future.
+- [ ] Test case 1: Check for valid replies button query (use both issue link and PR link to make sure that the attribute is still valid)
+- [ ] Test case 2: Check for valid comment section query (use both issue link and PR link to make sure that the attribute is still valid)
 
 ### Manual Testing
 
-[What you tested manually and results]
+I added console logs throughout while testing attributes I could use in the query to make sure I was accessing the proper elements. By using the logs, I better understand the flow of the application and I was able to break down the updates needed in steps. I am trying to make my commits as atomic as possible as well.
 
 ---
 
 ## Implementation Notes
 
-### Week [X] Progress
+### Week 5 Progress
 
-[What you built this week, challenges faced, decisions made]
+I updated the queries and created logs to check the flow. Now we successfully access the button, the comment field, and the repository replies that we plan to add in the Saved Replies dropdown. Here is the [commit](https://github.com/JewlzT/refined-saved-replies/commit/d0f3846eec30e79c7c182872c0cb0e730286d635) showing this progress.
 
 ### Week [Y] Progress
 
@@ -123,7 +119,7 @@ Using UMPIRE framework (adapted):
 ### Code Changes
 
 - **Files modified:** [List]
-- **Key commits:** [Links to important commits]
+- **Key commits:** [Week 5 commit](https://github.com/JewlzT/refined-saved-replies/commit/d0f3846eec30e79c7c182872c0cb0e730286d635)
 - **Approach decisions:** [Why you chose certain approaches]
 
 ---
