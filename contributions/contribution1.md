@@ -112,15 +112,15 @@ I added console logs throughout while testing attributes I could use in the quer
 
 I updated the queries and created logs to check the flow. Now we successfully access the button, the comment field, and the repository replies that we plan to add in the Saved Replies dropdown. Here is the [commit](https://github.com/JewlzT/refined-saved-replies/commit/d0f3846eec30e79c7c182872c0cb0e730286d635) showing this progress.
 
-### Week [Y] Progress
+### Week 6 Progress
 
-[Continue documenting as you work]
+I have successfully fixed the issue for both pull requests and issues. There is a visual bug when using the saved replies feature for issues due to GitHub's UI update. I plan to fix this and create a PR this week. Here is my weekly [commit](https://github.com/JewlzT/refined-saved-replies/commit/4c460f1180db26943be108200dbd405d1ac427c4).
 
 ### Code Changes
 
-- **Files modified:** [List]
-- **Key commits:** [Week 5 commit](https://github.com/JewlzT/refined-saved-replies/commit/d0f3846eec30e79c7c182872c0cb0e730286d635)
-- **Approach decisions:** [Why you chose certain approaches]
+- **Files modified:** `content-script.ts`, `fetchSettings.ts`
+- **Key commits:** [Week 5 commit](https://github.com/JewlzT/refined-saved-replies/commit/d0f3846eec30e79c7c182872c0cb0e730286d635), [Week 6 commit](https://github.com/JewlzT/refined-saved-replies/commit/4c460f1180db26943be108200dbd405d1ac427c4)
+- **Approach decisions:** I have decided to split the code into two large sections: one for pull requests and one for issues. Depending on which one you are commenting on, the elements that are being accessed and the UI is completely difference. I believe this separation will be clearer for future developers to update rather than the current layout which assumes the UI is the same for both issues and PRs.
 
 ---
 
