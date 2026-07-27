@@ -120,10 +120,14 @@ I have successfully fixed the issue for both pull requests and issues. There is 
 
 I have figured out what the visual bug is. Unfortunately, it's very dependent on the way that GitHub has altered their UI. There is quite a significant difference between the saved replies for the issues and for the PRs. This means that almost the entirety of the `content-script.ts` file will have to be written for issues alone and for PRs alone so that the display is legible and works correctly. My commit this week was my attempt at creating a reusable function. Unfortunately, I'll have to scrape this idea because their are so many additional elements that having variable classnames is not enough. I'll have to split the code into two and move the planned PR to next week. Here is my weekly [commit](https://github.com/JewlzT/refined-saved-replies/commit/eefe81f2c1d31ad2375199d834b61890cb75ddb0).
 
+### Week 8 Progress
+
+I fixed the visual issues and have created a working prototype! There is a bug when it comes to filtering, which I am currently fixing. Other than that, everything is working as expected. I'm going to be cleaning code and creating test cases this week. Here is my weekly [commit](https://github.com/JewlzT/refined-saved-replies/commit/dabe7048acc8e1b9b3d6ebc432c0f24d719c05a2).
+
 ### Code Changes
 
 - **Files modified:** `content-script.ts`, `fetchSettings.ts`
-- **Key commits:** [Week 5 commit](https://github.com/JewlzT/refined-saved-replies/commit/d0f3846eec30e79c7c182872c0cb0e730286d635), [Week 6 commit](https://github.com/JewlzT/refined-saved-replies/commit/4c460f1180db26943be108200dbd405d1ac427c4), [Week 7 commit](https://github.com/JewlzT/refined-saved-replies/commit/eefe81f2c1d31ad2375199d834b61890cb75ddb0)
+- **Key commits:** [Week 5 commit](https://github.com/JewlzT/refined-saved-replies/commit/d0f3846eec30e79c7c182872c0cb0e730286d635), [Week 6 commit](https://github.com/JewlzT/refined-saved-replies/commit/4c460f1180db26943be108200dbd405d1ac427c4), [Week 7 commit](https://github.com/JewlzT/refined-saved-replies/commit/eefe81f2c1d31ad2375199d834b61890cb75ddb0), [Week 8 commit](https://github.com/JewlzT/refined-saved-replies/commit/dabe7048acc8e1b9b3d6ebc432c0f24d719c05a2)
 - **Approach decisions:** I have decided to split the code into two large sections: one for pull requests and one for issues. Depending on which one you are commenting on, the elements that are being accessed and the UI is completely difference. I believe this separation will be clearer for future developers to update rather than the current layout which assumes the UI is the same for both issues and PRs.
 
 ---
