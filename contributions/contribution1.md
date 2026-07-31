@@ -44,7 +44,15 @@ The `content-script.ts` file is where the code errors out.
 
 ### Environment Setup
 
-Setting up the local development environment was easier than I first believed it to be. I just had to clone the repository, install the dependencies and recommended extensions, go to my Google extensions and switch it to development mode, and upload the code that I cloned to run the extension on a site. As I make changes, all I need to do is create a new build and refresh the extension to see the changes locally.
+Setting up the local development environment was easier than I first believed it to be. 
+
+I simply had to:
+
+1. Clone the repository
+2. Install the dependencies and recommended extensions
+3. Go to my Google extensions and switch it to development mode
+4. Link the location of the the code that I cloned to run the extension on the GitHub site
+5. Create a new build and refresh the extension after making any changes to see the changes locally.
 
 I found the file that would need to be altered fairly quickly as well. The interesting thing about Google extensions is that I can use the developer mode to upload the source code (after creating a build of the code) and I can use the extension locally.
 
