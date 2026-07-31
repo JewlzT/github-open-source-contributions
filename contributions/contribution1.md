@@ -3,7 +3,7 @@
 **Contribution Number:** 1  
 **Student:** Julianne Tomlinson  
 **Issue:** [https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/1443](https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/1443)  
-**Status:** Phase III - In Progress
+**Status:** Phase III - Completed
 
 ---
 
@@ -96,9 +96,15 @@ Using UMPIRE framework (adapted):
 ## Testing Strategy
 
 ### Unit Tests
-There are not unit tests covering the file that is currently broken so I plan to write some to avoid this issue in the future.
-- [ ] Test case 1: Check for valid replies button query (use both issue link and PR link to make sure that the attribute is still valid)
-- [ ] Test case 2: Check for valid comment section query (use both issue link and PR link to make sure that the attribute is still valid)
+- [x] Test case 1 [Manual]: Console log through user flow and make sure everything is working as expected (deleted before final push)
+- [x] Test case 2 [Unit Test]: Update tests to include the new object shape in `fetchSettings.ts` (The tests were failing due to the fact that the returned object looked different than what was expected in the tests. This was expected as I altered the return when implementing the fix)
+- [x] Test case 3 [Unit Test]: Create new unit tests for the added itemDetails in `fetchSettings.ts`
+
+I plan to write some to avoid this bug in the future.
+Update: These test cases require e2e testing that does not currently exist within the workings of this application. I'm going to have a discussion with the maintainer about this and see if this is something I could implement as an additional PR because it requires a bit of research.
+
+Extra: Check for valid replies button query (use both issue link and PR link to make sure that the attribute is still valid)
+Extra: Check for valid comment section query (use both issue link and PR link to make sure that the attribute is still valid)
 
 ### Manual Testing
 
@@ -114,20 +120,24 @@ I updated the queries and created logs to check the flow. Now we successfully ac
 
 ### Week 6 Progress
 
-I have successfully fixed the issue for both pull requests and issues. There is a visual bug when using the saved replies feature for issues due to GitHub's UI update. I plan to fix this and create a PR this week. Here is my weekly [commit](https://github.com/JewlzT/refined-saved-replies/commit/4c460f1180db26943be108200dbd405d1ac427c4).
+I have successfully fixed the issue for both pull requests and issues. There is a visual bug when using the saved replies feature for the issues page due to GitHub's UI update (the repository reply is squished and illegible). I plan to fix this during this upcoming week. Here is my weekly [commit](https://github.com/JewlzT/refined-saved-replies/commit/4c460f1180db26943be108200dbd405d1ac427c4).
 
 ### Week 7 Progress
 
-I have figured out what the visual bug is. Unfortunately, it's very dependent on the way that GitHub has altered their UI. There is quite a significant difference between the saved replies for the issues and for the PRs. This means that almost the entirety of the `content-script.ts` file will have to be written for issues alone and for PRs alone so that the display is legible and works correctly. My commit this week was my attempt at creating a reusable function. Unfortunately, I'll have to scrape this idea because their are so many additional elements that having variable classnames is not enough. I'll have to split the code into two and move the planned PR to next week. Here is my weekly [commit](https://github.com/JewlzT/refined-saved-replies/commit/eefe81f2c1d31ad2375199d834b61890cb75ddb0).
+I have figured out what the visual bug is. Unfortunately, it's very dependent on the way that GitHub has altered their UI. There is quite a significant difference between the saved replies for the issues and for the PRs. This means that almost the entirety of the `content-script.ts` file will have to be written for issues alone and for PRs alone so that the display is legible and works correctly. My commit this week was my attempt at creating a reusable function. Unfortunately, I'll have to scrape this idea because their are so many additional elements that having variable classnames is not enough. I'll have to split the code into two branches, one for the PR page and one for the issues page. Here is my weekly [commit](https://github.com/JewlzT/refined-saved-replies/commit/eefe81f2c1d31ad2375199d834b61890cb75ddb0).
 
 ### Week 8 Progress
 
-I fixed the visual issues and have created a working prototype! There is a bug when it comes to filtering, which I am currently fixing. Other than that, everything is working as expected. I'm going to be cleaning code and creating test cases this week. Here is my weekly [commit](https://github.com/JewlzT/refined-saved-replies/commit/dabe7048acc8e1b9b3d6ebc432c0f24d719c05a2).
+I fixed the visual issues and have created a working prototype! There is a bug when it comes to filtering the new repository replies when searching, which I am currently fixing. Other than that, everything is working as expected. I'm going to be cleaning code and creating test cases this week. Here is my weekly [commit](https://github.com/JewlzT/refined-saved-replies/commit/dabe7048acc8e1b9b3d6ebc432c0f24d719c05a2).
+
+### Week 9 Progress
+
+The bug exists in both sections which is out of the scope of this issue, so I will create an issue in the future for it so I don't scope creep. I've cleaned the code, fixed the broken tests, and created new ones for my implementation. I am finished with Phase 3 and will be submitting the PR soon. Here are my weekly commits:[fixed ui and cleaned code](https://github.com/JewlzT/refined-saved-replies/commit/ae371c4f425f218883c7f4dae455b37db811f4d9) and [updated testing suite](https://github.com/JewlzT/refined-saved-replies/commit/94b6b5fc16f9c1d7600a98511bcc5167f5528c3d)
 
 ### Code Changes
 
-- **Files modified:** `content-script.ts`, `fetchSettings.ts`
-- **Key commits:** [Week 5 commit](https://github.com/JewlzT/refined-saved-replies/commit/d0f3846eec30e79c7c182872c0cb0e730286d635), [Week 6 commit](https://github.com/JewlzT/refined-saved-replies/commit/4c460f1180db26943be108200dbd405d1ac427c4), [Week 7 commit](https://github.com/JewlzT/refined-saved-replies/commit/eefe81f2c1d31ad2375199d834b61890cb75ddb0), [Week 8 commit](https://github.com/JewlzT/refined-saved-replies/commit/dabe7048acc8e1b9b3d6ebc432c0f24d719c05a2)
+- **Files modified:** `content-script.ts`, `fetchSettings.ts`, `fetchSettings.test.ts`, `validations.ts`, `types.ts`
+- **Key commits:** [Week 5 commit](https://github.com/JewlzT/refined-saved-replies/commit/d0f3846eec30e79c7c182872c0cb0e730286d635), [Week 6 commit](https://github.com/JewlzT/refined-saved-replies/commit/4c460f1180db26943be108200dbd405d1ac427c4), [Week 8 commit](https://github.com/JewlzT/refined-saved-replies/commit/dabe7048acc8e1b9b3d6ebc432c0f24d719c05a2), [Week 9 commit 1](https://github.com/JewlzT/refined-saved-replies/commit/ae371c4f425f218883c7f4dae455b37db811f4d9), [Week 9 commit 2](https://github.com/JewlzT/refined-saved-replies/commit/94b6b5fc16f9c1d7600a98511bcc5167f5528c3d)
 - **Approach decisions:** I have decided to split the code into two large sections: one for pull requests and one for issues. Depending on which one you are commenting on, the elements that are being accessed and the UI is completely difference. I believe this separation will be clearer for future developers to update rather than the current layout which assumes the UI is the same for both issues and PRs.
 
 ---
