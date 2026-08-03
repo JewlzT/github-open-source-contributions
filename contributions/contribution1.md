@@ -152,15 +152,34 @@ The bug exists in both sections which is out of the scope of this issue, so I wi
 
 ## Pull Request
 
-**PR Link:** [GitHub PR URL when submitted]
+**PR Link:** [GitHub PR URL](https://github.com/JoshuaKGoldberg/refined-saved-replies/pull/1460)
 
-**PR Description:** [Draft or final PR description - much of the content above can be adapted]
+**PR Description:**
+
+Every so often, as stated by the maintainer in the bugfix issue related to this PR, the UI for this extension is outdated due to GitHub's UI updates. This PR remedies this by making sure that the repository replies are accessible in the Saved Replies popup for both issues and pull requests.
+
+The Saved Replies popup on the issue page has a different structure and naming convention for its elements and attributes (The pull request page can modify the popup successfully using the original UI format). Due to this, the `content-script.ts` file now contains a logical split to differentiate the UI modifications needed for the issue page versus the pull request page. 
+
+<details>
+  <summary>Before: Picture of Issue Saved Replies Popup</summary>
+ <img width="187" height="181" alt="issue_saved_replies_before" src="https://github.com/user-attachments/assets/aa4d67e4-5008-4fd0-ba36-467cd6279160" />
+
+- Only the user's custom replies are visible because the button element for the Saved Replies cannot be queried successfully
+</details>
+
+<details>
+  <summary>After: Picture of Issue Saved Replies Popup</summary>
+<img width="191" height="214" alt="issue_saved_replies_after" src="https://github.com/user-attachments/assets/53b01482-6453-4700-84d1-a7f4eca4f581" />
+
+- The repository's replies are being displayed and match the UI of the user's replies
+</details>
 
 **Maintainer Feedback:**
 - [Date]: [Summary of feedback received]
 - [Date]: [How you addressed it]
 
-**Status:** [Awaiting review / Iterating / Approved / Merged]
+**Status:** [Awaiting review]
+<!--[Awaiting review / Iterating / Approved / Merged]-->
 
 ---
 
@@ -168,20 +187,27 @@ The bug exists in both sections which is out of the scope of this issue, so I wi
 
 ### Technical Skills Gained
 
-[What you learned technically]
+Through this process I've learned how a Google extension is created and developed. I was able to utilize Google's developer tools to see the builds of the project in action, which made implementation an easier process.
+
+My TypeScript understanding has become stronger as I learned how and when to use interfaces and the importance of statically typing.
+
+Most importantly, I feel that I have become a stronger open-source contributor as I was able to onboard very quickly, choose an appropriate issue, and locate the file(s) of interest within the first two weeks. I felt confident throughout the process, although it took me longer than expected due to external obstacles.
 
 ### Challenges Overcome
 
-[What was hard and how you solved it]
+One of the challenges I faced was when I had to pivot from my original issue. After selecting the issue and setting up the dev environment, I realized that part of the extension was broken causing it to fail when trying to locate elements on the page. Due to this, an error was sent to the console that the element could not be found and the program quit prematurely. I overcame this issue by deciding to forfeit the past two weeks and create a bugfix issue to solve instead. This way I could work in the repository that I'm somewhat familiar with and get more experience with the intricacies of the user flow.
+
+Another challenge that I faced was the filtering feature being janky when the replies are added. At first, I wanted to include this in my PR but I noticed that the feature never worked from the beginning. This inclusion would make my PR less granular, which would give the maintainers a hard time reviewing the PR. I have decided I will make a feature issue to tackle this in the future.
 
 ### What I'd Do Differently Next Time
 
-[Reflection on your process]
+Before choosing an issue in any project in the future, I am going to set up the development environment to make sure that I can run it as expected. I did this during my previous open-source experience, but I overlooked how important this step was for me. I feel that I would have been on the right path had I had the dev environment up and running first. I would have noticed earlier that there was a bug that would inhibit my ability to work on a new feature. 
 
 ---
 
 ## Resources Used
 
-- [Link to helpful documentation]
-- [Tutorial or Stack Overflow post that helped]
-- [GitHub issues or discussions that helped]
+- [Contributing Documentation](https://github.com/JoshuaKGoldberg/refined-saved-replies/blob/main/.github/CONTRIBUTING.md), [Development Documentation](https://github.com/JoshuaKGoldberg/refined-saved-replies/blob/main/.github/DEVELOPMENT.md)
+- [Google Extension Documentation](https://developer.chrome.com/docs/extensions/get-started/tutorial/scripts-on-every-tab)
+- [Similar GitHub issue
+](https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/161)
