@@ -3,7 +3,7 @@
 **Contribution Number:** 1  
 **Student:** Julianne Tomlinson  
 **Issue:** https://github.com/JoshuaKGoldberg/refined-saved-replies/issues/2  
-**Status:** Phase I - Complete  
+**Status:** Phase II - in progress
 
 ---
 
@@ -18,7 +18,7 @@ I'm interested in this because:
 
 From reading the issue description, I understand the current problem is that users aren't getting clear feedback on the UI regarding unsuccessful loading of the replies.yml files in their chosen repository. There should be an indication of this on screen in the Saved Replies dropdown to show that there might be replies missing. If the dropdown isn't on screen at the time of the error, there should be a console error.
 
-I left a comment on the issue introducing myself, asking if the issue was still unsolved and open [Waiting for response]
+I left a comment on the issue introducing myself, asking if the issue was still unsolved and open [Received Response]
 
 ---
 
@@ -30,7 +30,7 @@ Currently, when the replies.yml file cannot be accessed in the repository, there
 
 ### Expected Behavior
 
-When the necessary file cannot be read, then there should be an error that displays in the saved replies dropdown indicating this.
+When the necessary file cannot be read, then there should be an error that displays in the saved replies dropdown indicating this. The users should not have to enter the console to be aware of this error.
 
 ### Current Behavior
 
@@ -46,18 +46,23 @@ The `fetchRepliesConfiguration.ts` file is where the error code exists. If the f
 
 ### Environment Setup
 
-Setting up the local development environment was easier than I first believed it to be. I just had to clone the repository and install the dependencies and recommended extensions. I found the file that would need to be altered fairly quickly as well. The interesting thing about Google extensions is that I can use the developer mode to upload the source code (after creating a build of the code) and I can use the extension locally.
+Setting up the local development environment was easier than I first believed it to be.
 
-A problem that I have run into this week is that I cannot reproduce the issue as the Saved replies feature doesn't seem to be functioning as expected. I'm going to look into it more this upcoming week and see if it is a user error or an issue with the repository I've chosen.
+I had to:
 
-Update: I've been debugging all week (6/15-6/22) and have found out that there is an issue with the code unrelated to my issue. There is a problem finding the correct elements on the screen as the parameters that the code relied on seem to have changed since it was last worked on. The bug must be fixed so that I can develop my issue. I'll be opening a detailed issue this week and work on coding this instead. I link it here once I've created it and rewrite this contribution dock for the new issue.
+1. Clone the repository
+2. Install the dependencies and recommended extensions
+3. Go to my Google extensions and switch it to development mode
+4. Link the location of the the code that I cloned to run the extension on the GitHub site
+5. Create a new build and refresh the extension after making any changes to see the changes locally.
+
 
 ### Steps to Reproduce
 
-1. Create a console log in the function for finding the element on the screen
-2. Activate the developer version of the extension
-3. Go to the issue of your choice
-4. Notice that the console log is displaying that the replies button cannot be found
+1. Activate the developer version of the extension
+2. Go to the issue of your choice
+3. Notice that there is an error in the console log 
+4. Notice that there is no visual indicator of this error for users
 
 ### Reproduction Evidence
 
