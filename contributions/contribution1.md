@@ -178,7 +178,7 @@ The Saved Replies popup on the issue page has a different structure and naming c
 **[Sep 19]**: I received great, in-depth feedback in regards to my PR with comments for each section that I need to alter. They span from quick bug fixes to deeper concerns. I plan to address it from easy changes to ones that require more thought. I've used numerical values to indicate how much time may be spent on each issue, similar to a Jira issue. I've listed each comment below:
 
 1 bugfix in src/fetchSettings.ts:
-- [1] Fix hard-coded item details object to allow for other values to be passed through
+- [x] [1] Fix hard-coded item details object to allow for other values to be passed through
 
 5 bugfixes and concerns in src/content-script.ts:
 - [1] includes("pull") matches anywhere in the url (a username could contain the word pull and return true)
@@ -187,7 +187,12 @@ The Saved Replies popup on the issue page has a different structure and naming c
 - [1] The footer is located in the nested loop and is being created as many times as the length of the saved replies list
 - [5] Research into ways to dynamically retrieve from page (related to my e2e testing idea above so that an error exists upon the application no longer functioning as expected
 
-**[Sep 26]**: [How you addressed it]
+**[Oct 9]**: I am working on the bugs that have a value of 1.
+
+- [x] Fix hard-coded item details object to allow for other values to be passed through and update tests:   
+I have extended the return to preserve any other API data that is called as well as fixed the index signature in `types.ts` so that the extra fields included can be accessed (the type of the extraneous itemDetails data stays unknown but accessible). I updated the tests to match the new return from `fetchSettings` function.
+- [ ] Fix footer location (currently in the nested loop):   
+in progress
 
 **Status:** [Iterating]
 <!--[Awaiting review / Iterating / Approved / Merged]-->
