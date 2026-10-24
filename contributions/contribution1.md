@@ -191,7 +191,13 @@ The Saved Replies popup on the issue page has a different structure and naming c
 
 - [x] Fix hard-coded item details object to allow for other values to be passed through and update tests:   
 I have extended the return to preserve any other API data that is called as well as fixed the index signature in `types.ts` so that the extra fields included can be accessed (the type of the extraneous itemDetails data stays unknown but accessible). I updated the tests to match the new return from `fetchSettings` function.
-- [ ] Fix footer location (currently in the nested loop):   
+
+**[Oct 23]**: I am working on the rest of the issues.
+- [x] Fix footer location (currently in the nested loop):   
+I have fixed the location of the "Create repository replies" button creation for pull requests in the code so that it is not repeated for the existance of every menu in the `replyCategoriesDetailsMenus` variable. The issues button is created in a different manner so the problem does not exist there.
+- [x] Update listLength variable to dataID:   
+I changed the variable to dataID as requested as that is what the dynamic variable was created for so that the id would be different for each repository reply added.
+- [ ] Fix includes("pull") as it matches anywhere in the url:   
 in progress
 
 **Status:** [Iterating]
